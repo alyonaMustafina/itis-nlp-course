@@ -1,0 +1,4 @@
+#!C:\Users\alyona\Documents\ИТИС\3 курс\nlp\virtenv\Scripts\python.exe
+import sys
+from pymorphy2 import cli
+sys.exit(cli.main())
