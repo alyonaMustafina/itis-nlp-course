@@ -73,7 +73,7 @@ def get_corpus_and_tokens(texts, stop_words):
         ]
         corpus.extend([token for token in tokens])
 
-    return corpus, list(set(corpus))
+    return list(set(corpus)), corpus
 
 
 def classify_review(review, model, p_positive, p_negative, p_neutral):
@@ -87,7 +87,7 @@ def classify_review(review, model, p_positive, p_negative, p_neutral):
     neg = 0
     netr = 0
     unique_tokens = list(set(tokens))
-    for un_token in unique_tokens:
+    for un_token in tokens:
         pos += math.log10(
             (1.0 + sum(
                 [1.0 for token in positive_tokens if (token == un_token)])) /
